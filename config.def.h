@@ -157,6 +157,10 @@ static uint forcemousemod = ShiftMask;
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
 
+static char *openurlcmd[] = { "/bin/sh", "-c",
+    "xurls | dmenu -l 10 | xargs -r xdg-open",
+    "externalpipe", NULL };
+
 /*
  * Internal mouse shortcuts.
  * Beware that overloading Button1 will disable the selection.
@@ -195,6 +199,7 @@ static Shortcut shortcuts[] = {
     { MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
     { MODKEY,               XK_u,           kscrollup,      {.i = -1} },
     { MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
+    { MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
 };
 
 /*
