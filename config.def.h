@@ -165,6 +165,8 @@ static char *copyurlcmd[] = { "/bin/sh", "-c",
     "sed 's/.*|//g' | tr -d '\n' | grep -aEo '((http|https)://|www\\.)[a-zA-Z0-9./&?=_-]*' | uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -p 'Copy which url?' -l 10 | tr -d '\n' | xclip -selection clipboard",
     "externalpipe", NULL };
 
+static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
+
 /*
  * Internal mouse shortcuts.
  * Beware that overloading Button1 will disable the selection.
@@ -205,6 +207,7 @@ static Shortcut shortcuts[] = {
     { MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
     { MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
     { MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
+    { MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
 };
 
 /*
