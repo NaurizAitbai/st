@@ -158,7 +158,7 @@ static uint forcemousemod = ShiftMask;
 #define TERMMOD (ControlMask|ShiftMask)
 
 static char *openurlcmd[] = { "/bin/sh", "-c",
-    "xurls | dmenu -l 10 | xargs -r xdg-open",
+    "xurls | uniq | dmenu -l 10 | xargs -r xdg-open",
     "externalpipe", NULL };
 
 /*
